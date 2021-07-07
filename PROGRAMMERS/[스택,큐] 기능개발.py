@@ -17,9 +17,7 @@ def solution(progresses, speeds):
             dq.append(temp)
             dq.append(dq.popleft() + temp)
             count += 1
-
         Q.put(count)
-
     
     max = Q.get()
     num = 1
@@ -27,8 +25,7 @@ def solution(progresses, speeds):
     for i in range(Q.qsize()):
         tmp = Q.get()
         if max >= tmp:
-            num += 1
-            
+            num += 1   
         else:
             max = tmp
             answer.append(num)
@@ -37,7 +34,6 @@ def solution(progresses, speeds):
         if Q.qsize() == 0: answer.append(num)
 
     return answer
-
 
 progresses = list(map(int,input().split()))
 speeds = list(map(int,input().split()))
