@@ -1,5 +1,3 @@
-package inflearn_codingTestPractice;
-
 import java.util.*;
 
 public class Count_word {
