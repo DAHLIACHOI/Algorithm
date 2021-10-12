@@ -20,9 +20,9 @@ public class Count_word {
 }
 
 /*
- * [inflearn java algorithm ���� Ǯ��]
+ * [inflearn java algorithm 문제 풀이]
  * 
- * �� ���� ���ڿ��� �Է¹ް�, Ư�� ���ڸ� �Է¹޾� �ش� Ư�����ڰ� �Է¹��� ���ڿ��� �� �� ����ִ��� ���� Ȯ��
- * ��ҹ��ڸ� �������� �ʴ´�
+ * 한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 몇 개 들어있는지 개수 확인
+ * 대소문자를 구별하지 않는다
  * 
  */
