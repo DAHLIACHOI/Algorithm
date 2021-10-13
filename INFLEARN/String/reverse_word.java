@@ -2,7 +2,7 @@ package inflearn_codingTestPractice;
 
 import java.util.*;
 
-public class reverse_word {
+public class everse_word {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int N = input.nextInt();
@@ -35,7 +35,7 @@ public class reverse_word {
 
 
 /*
- * [inflearn ¾Ë°í¸®Áò ¹®Á¦Ç®ÀÌ]
+ * [inflearn ì•Œê³ ë¦¬ì¦˜ ë¬¸ì œí’€ì´]
  * 
- * ÀÔ·ÂÇÑ ´Ü¾î µÚÁı¿¡¼­ Ãâ·ÂÇÏ±â
+ * ì…ë ¥í•œ ë‹¨ì–´ ë’¤ì§‘ì—ì„œ ì¶œë ¥í•˜ê¸°
  */
