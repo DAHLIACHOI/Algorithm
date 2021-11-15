@@ -18,3 +18,8 @@ public class ExtractionNum {
 	}
 
 }
+
+/*
+[inflearn algorithm ]
+extract number in string
+*/
