@@ -1,27 +1,21 @@
 class Solution {
     public String solution(int[] food) {
-        String answer = "";
         
+        StringBuffer sb = new StringBuffer();
         
         // 왼쪽 정렬 추가
         for (int i = 1; i < food.length; i++) {
             
-            int cnt = food[i] / 2; // 원소 짝수 판별
-            
-            for(int j = 0; j < cnt; j++) {
-                answer += Integer.toString(i);
+            for(int j = 0; j < food[i] / 2; j++) {
+                sb.append(Integer.toString(i));
             }
         }
         
+        String left = sb + "0";
         
-        // 물 추가
-        answer += "0";
-        
-        // 오른쪽 정렬 추가
-        for(int i = answer.length() - 2; i >= 0; i--) {
-            answer += answer.charAt(i);
-        }
-        
+        // 오른쪽 추가
+        String answer = left + sb.reverse();
+
         return answer;
     }
 }
