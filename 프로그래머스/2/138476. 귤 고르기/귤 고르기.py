@@ -4,8 +4,9 @@ def solution(k, tangerine):
     answer = 0
     total = 0
     
-    counter = dict(Counter(tangerine))
+    counter = Counter(tangerine)
     counter = sorted(counter.items(), key = lambda x : x[1], reverse = True)
+    
     for x in counter:
         total += x[1]
         
