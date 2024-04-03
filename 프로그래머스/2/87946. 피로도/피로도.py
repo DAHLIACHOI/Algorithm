@@ -1,19 +1,21 @@
-from itertools import permutations
+answer, n = 0,0
+visited = []
+
+def dfs(k, cnt, dungeons):
+    global answer, visited
+    answer = max(answer, cnt)
+    
+    for j in range(n):
+        if dungeons[j][0] <= k and not visited[j]:
+            visited[j] = 1
+            dfs(k - dungeons[j][1], cnt + 1, dungeons)
+            visited[j] = 0
+    
+
 
 def solution(k, dungeons):
-    answer = -1
-    
-    for per in permutations(dungeons, len(dungeons)):
-        tmp_k = k
-        cnt = 0
-        for p in per:
-            if tmp_k >= p[0]:
-                tmp_k -= p[1]
-                cnt += 1
-            else:
-                break
-                
-        answer = max(answer, cnt)
-        
-    
+    global n, visited
+    n = len(dungeons)
+    visited = [0] * n
+    dfs(k, 0, dungeons)
     return answer
