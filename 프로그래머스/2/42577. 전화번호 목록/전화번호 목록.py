@@ -1,7 +1,7 @@
 def solution(phone_book):
     answer = True
     
-    phone_book.sort()
+    phone_book = sorted(phone_book)
     tmp = '-1'
 
     for phone in phone_book:
