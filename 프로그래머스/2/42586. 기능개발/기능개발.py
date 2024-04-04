@@ -4,22 +4,23 @@ def solution(progresses, speeds):
     answer = []
     
     q = deque(progresses)
-    cnt = 0
-
+    speeds = deque(speeds)
+    
     while True:
+        cnt = 0
+        
         if len(q) == 0: break
         
-        # 개발 속도 추가해주기
-        for i in range(len(q)):
-            q[i] += speeds[i]
-            
+        for i, s in enumerate(speeds):
+            q[i] += s
+                
         if q[0] >= 100:
             while True:
                 if len(q) == 0 or q[0] < 100: break
-                cnt += 1
-                del speeds[0]
+                
                 q.popleft()
+                speeds.popleft()
+                cnt += 1
             answer.append(cnt)
-            cnt = 0
-    
+
     return answer
