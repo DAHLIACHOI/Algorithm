@@ -2,15 +2,14 @@ def solution(clothes):
     answer = 1
     dic = {}
     
+    # 종류별로 카운트
     for c in clothes:
-        key = c[1]
-        if key in dic:
-            dic[key] += 1
+        if c[1] in dic.keys():
+            dic[c[1]] += 1
         else:
-            dic[key] = 1
-            
-    for value in dic.values():
-        answer = answer * (value + 1)
+            dic[c[1]] = 1
     
+    for d in dic.values():
+        answer *= (d + 1)
     
     return answer - 1
