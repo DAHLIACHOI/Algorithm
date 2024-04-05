@@ -1,32 +1,28 @@
 import queue
-
 def solution(priorities, location):
-    
     answer = 0
+    
     q = queue.Queue()
     
+    # 인덱스 번호랑 같이 넣기
     for i, p in enumerate(priorities):
-        q.put((p, i))
+        q.put((i, p))
     
-    # 크기대로 정렬
-    compare = sorted(priorities)
-    answer = 0
+    # 큰 수대로 정렬해서 큰 값 비교하기
+    priorities = sorted(priorities)
     
-    # q가 사라질 때까지
     while q.qsize() > 0:
-        # 일단 처음 요소 꺼내기
-        element = q.get()
+        # 처음거 먼저 빼기
+        process = q.get()
         
-        # 만약 꺼낸 값보다 큰 값이 있다면 다시 넣기
-        if element[0] < compare[-1]:
-            q.put(element)
-        # 더 큰 값이 없다면 해당 요소 그대로 pop, i --
+        # 만약에 더 큰 값이 있다면 다시 큐에 넣기
+        if process[1] < priorities[-1]:
+            q.put(process)
+        
+        # 아니라면 그대로 pop 시키고, 정렬되어있는 마지막 값 제거
         else:
+            priorities.pop()
             answer += 1
-            compare.pop()
-            # 만약에 pop한 인덱스가 내가 원하던 값이면 return
-            if element[1] == location:
-                return answer
             
-        
-        
+            if process[0] == location:
+                return answer
