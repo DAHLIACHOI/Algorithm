@@ -1,8 +1,6 @@
 from itertools import permutations
 
 def is_prime_number(x):
-    if x == 2:
-        return True
     if x == 0 or x == 1:
         return False
     
@@ -24,7 +22,6 @@ def solution(numbers):
     
     for c in com:
         answers.add(int (''.join(c)))
-    # print(answers)
         
     for number in answers:
         if is_prime_number(number):
