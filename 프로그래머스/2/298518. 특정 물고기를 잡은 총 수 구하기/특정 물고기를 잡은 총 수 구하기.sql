@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE FISH_TYPE IN (SELECT fni.FISH_TYPE 
+                    FROM FISH_NAME_INFO fni 
+                    WHERE fni.FISH_NAME IN('BASS', 'SNAPPER'))
