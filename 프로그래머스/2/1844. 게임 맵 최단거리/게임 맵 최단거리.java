@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Point {
     int x;
     int y;
@@ -12,39 +11,42 @@ class Point {
 
 class Solution {
     
-    static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
+    static int[] dx = {0, 1, 0, -1};
+    static int[] dy = {1, 0, -1, 0};
     static int[][] dis;
+    static int n, m;
     
-    public void BFS(int x, int y, int[][] maps) {
+    public void bfs(int x, int y, int[][] maps) {
         Queue<Point> Q = new LinkedList<>();
-        dis = new int[maps.length][maps[0].length];
-        
         Q.offer(new Point(x, y));
         maps[x][y] = 0;
+        dis = new int[n][m];
+        
         while(!Q.isEmpty()) {
-            Point tmp = Q.poll();
-            for(int i = 0; i < 4; i++) {
-                int nx = tmp.x + dx[i];
-                int ny = tmp.y + dy[i];
+            Point p = Q.poll();
+            
+            for (int i = 0; i < 4; i++) {
+                int nx = p.x + dx[i];
+                int ny = p.y + dy[i];
                 
-                if (nx >= 0 && nx < maps.length && ny >= 0 && ny < maps[0].length && maps[nx][ny] == 1) {
-                    maps[nx][ny] = 0;
+                if (0 <= nx && nx < n && 0 <= ny && ny < m && maps[nx][ny] == 1) {
                     Q.offer(new Point(nx, ny));
-                    dis[nx][ny] = dis[tmp.x][tmp.y] + 1;
+                    maps[nx][ny] = 0;
+                    dis[nx][ny] = dis[p.x][p.y] + 1;
                 }
             }
         }
         
     }
     
+    
     public int solution(int[][] maps) {
+        n = maps.length;
+        m = maps[0].length;
         
-        BFS(0, 0, maps);
+        bfs(0, 0, maps);
         
-        if(dis[maps.length - 1][maps[0].length - 1] == 0) {
-            return -1;
-        }
-        return dis[maps.length - 1][maps[0].length - 1] + 1;
+        if(dis[n - 1][m - 1] == 0) return -1;
+        return dis[n - 1][m - 1] + 1;
     }
 }
